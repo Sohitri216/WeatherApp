@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule} from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 
 import {UserModule} from './user/user.module';
 import {WeatherModule} from './weather/weather.module';
+import {AbstractModule} from './abstract/abstract.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,11 @@ import {WeatherModule} from './weather/weather.module';
     FormsModule,
     HttpModule,
     UserModule,
-    WeatherModule
+    WeatherModule,
+    AbstractModule.forRoot()
+  ],
+   schemas: [ 
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [],
   bootstrap: [AppComponent]
