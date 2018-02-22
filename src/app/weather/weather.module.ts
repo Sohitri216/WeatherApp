@@ -9,22 +9,22 @@ import { WeatherService } from './services/weatherservice.service';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule
-  ],
-  declarations:[
-  	DetailsComponent,
-  	DashboardComponent
-  ],
-  exports:[
-  	DashboardComponent,
-  	DetailsComponent
-  ],
-  providers:[
-  	DataService,
-	WeatherService
-  ]
+	imports: [
+		CommonModule,
+		RouterModule,
+		FormsModule
+	],
+	declarations: [
+		DetailsComponent,
+		DashboardComponent
+	],
+	exports: [
+		DashboardComponent,
+		DetailsComponent
+	],
+	providers: [
+		DataService,
+		WeatherService
+	]
 })
 export class WeatherModule { }
