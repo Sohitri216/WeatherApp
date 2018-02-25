@@ -18,15 +18,15 @@ export class WeatherService {
     //   })
     // };
     let creds = Config.url;
-     return this.http.get(creds.baseUrl+"?lat=" + lat + "&lon=" + lng + "&cnt=" + count + "&APPID="+creds.appId);
+    return this.http.get(creds.baseUrl + "?lat=" + lat + "&lon=" + lng + "&cnt=" + count + "&APPID=" + creds.appId)
       .map((response: Response) => {
-       return response;
+        return response;
       })
-     .catch(this.handleError);
- }
- // handle error for service call
+      .catch(this.handleError);
+  }
+  // handle error for service call
   handleError(error: Response) {
     console.log(error);
-   return Observable.throw(error);
+    return Observable.throw(error);
   }
 }
