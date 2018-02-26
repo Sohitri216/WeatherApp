@@ -18,7 +18,6 @@ export class DashboardComponent implements OnInit {
 	ngOnInit() {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(this.locationSuccess.bind(this), this.locationError);
-			// navigator.geolocation.getCurrentPosition
 		}
 		else {
 			console.log("Your browser does not support Geolocation!");
@@ -29,6 +28,7 @@ export class DashboardComponent implements OnInit {
 		console.log('geoAPI:', lat, lon, count);
 		this.geoService.getGeoData(lat, lon, count).subscribe(data => {
 			// this.weatherData = data.query.results;
+			this.weatherData = data;
 			console.log('Geo Data:', data);
 		}, err => {
 			console.error(err)

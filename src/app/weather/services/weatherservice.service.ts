@@ -18,6 +18,7 @@ export class WeatherService {
     //   })
     // };
     let creds = Config.url;
+    // return this.http.get(creds.baseUrl + "?lat=" + lat + "&lon=" + lng + "&cnt=" + count + "&APPID=" + creds.appId)
     return this.http.get(creds.baseUrl + "?lat=" + lat + "&lon=" + lng + "&cnt=" + count + "&APPID=" + creds.appId)
       .map((response: Response) => {
         return response;
