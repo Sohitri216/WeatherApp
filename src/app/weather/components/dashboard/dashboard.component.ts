@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../common/services/dataservice.service';
 import { WeatherService } from '../../services/weatherservice.service';
-// import { Temp } from '../../../common/pipes/temp.pipe';
+import { Router } from '@angular/router';
 import { Geo, WeatherToday } from './geo';
 import { Observable } from 'rxjs/Rx';
 
@@ -15,7 +15,8 @@ export class DashboardComponent implements OnInit {
 	weatherToday:WeatherToday;
 	constructor(
 		private _httpService: DataService,
-		private geoService: WeatherService
+		private geoService: WeatherService,
+		private router: Router
 	) { }
 
 	ngOnInit() {
@@ -27,7 +28,7 @@ export class DashboardComponent implements OnInit {
 		}
 	}
 
-	getGeoAPI(lat, lon, count) {
+	getGeoAPI(lat:number, lon:number, count:number) {
 		console.log('geoAPI:', lat, lon, count);
 		this.geoService.getGeoData(lat, lon, count).subscribe((data: Geo) => {
 			if (data) {
@@ -46,7 +47,7 @@ export class DashboardComponent implements OnInit {
 
 
 
-	locationSuccess(position) {
+	locationSuccess(position:any) {
 		console.log(position, this);
 		let lat = position.coords.latitude;
 		let lon = position.coords.longitude;
@@ -74,17 +75,8 @@ export class DashboardComponent implements OnInit {
 
 	}
 
-
-	getData() {
-		this._httpService.getData().subscribe(data => {
-			this.weatherData = data.query.results;
-			console.log('Weather Data:', this.weatherData);
-		},
-			err => {
-				console.error(err)
-
-			},
-			() => console.log('done loading Data'));
+	goToDetails(){
+		this.router.navigateByUrl('/details');
 	}
 
 }

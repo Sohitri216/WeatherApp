@@ -1,23 +1,24 @@
 .wrapper{
-    display: table;
-    position: absolute;
-    height: 92%;
-    width: 100%;
     background-color: #e6e6e6;
+    width: 100%;
+    height:92%;
+    position: absolute;;
     .weather-card{
-        display: table-cell;
-        vertical-align: middle;
-        .inner{
             width: 350px;
-            margin: 0 auto;
-            // text-align: center;
             box-shadow: 5px 10px #888888;
             margin: 0 auto;
             background-color: #fff;
             padding: 15px;
+            margin:10px;
             p{
                 margin-bottom:0;
+                .bold-text{
+                    font-weight: bold;
+                }
             }
-        }
+            div{
+                text-align: right;
+            }
+        
     }
 }

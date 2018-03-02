@@ -1,18 +1,24 @@
 <div class="wrapper">
     <div class="weather-card">
-        <div class="inner">
-            <p>{{weatherData?.city?.name}}</p>
-            <p>{{weatherToday?.dt_txt | date:'fullDate'}}</p>
-            <p>Last captured at:
-                <span>{{weatherToday?.dt_txt|date:'shortTime'}}</span>
-            </p>
-            <p>Current Temperature: {{weatherToday?.main?.temp|temp}}</p>
-            <p>Max Temperature: {{weatherToday?.main?.temp_max|temp}}</p>
-            <p>Min Temperature: {{weatherToday?.main?.temp_min|temp}}</p>
-            <p>{{weatherToday?.weather[0]?.description}}</p>
-            <p>Wind speed:
-                <span>{{weatherToday?.wind?.speed}}kn</span>
-            </p>
+        <p>{{weatherToday?.dt_txt | date:'fullDate'}}</p>
+        <p>
+            <span class="bold-text">Place:</span> {{weatherData?.city?.name}}</p>
+        <p>
+            <span class="bold-text">Last captured:</span>
+            <span>{{weatherToday?.dt_txt|date:'shortTime'}}</span>
+        </p>
+        <p>
+            <span class="bold-text">Current Temperature:</span> {{weatherToday?.main?.temp|temp}}</p>
+        <p>
+            <span class="bold-text">Temperature:</span> {{weatherToday?.main?.temp_max|temp}}</p>
+        <p>
+            <span class="bold-text">Min Temperature:</span> {{weatherToday?.main?.temp_min|temp}}</p>
+        <p>
+            <span class="bold-text">Wind speed:</span>
+            <span>{{weatherToday?.weather[0]?.description}}, {{weatherToday?.wind?.speed}}kn</span>
+        </p>
+        <div>
+            <button class="button-login" (click)="goToDetails()">Details</button>
         </div>
     </div>
 </div>
