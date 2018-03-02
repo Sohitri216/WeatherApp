@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../common/services/dataservice.service';
 import { WeatherService } from '../../services/weatherservice.service';
+// import { Temp } from '../../../common/pipes/temp.pipe';
+import { Geo, WeatherToday } from './geo';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
@@ -9,7 +11,8 @@ import { Observable } from 'rxjs/Rx';
 	styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-	weatherData: any;
+	weatherData: Geo;
+	weatherToday:WeatherToday;
 	constructor(
 		private _httpService: DataService,
 		private geoService: WeatherService
@@ -26,10 +29,14 @@ export class DashboardComponent implements OnInit {
 
 	getGeoAPI(lat, lon, count) {
 		console.log('geoAPI:', lat, lon, count);
-		this.geoService.getGeoData(lat, lon, count).subscribe(data => {
-			// this.weatherData = data.query.results;
-			this.weatherData = data;
-			console.log('Geo Data:', data);
+		this.geoService.getGeoData(lat, lon, count).subscribe((data: Geo) => {
+			if (data) {
+				this.weatherData = data;
+				this.weatherToday=this.weatherData.list[0];
+				console.log('Weather data', this.weatherData);
+				console.log('Weather Today',this.weatherToday);
+			}
+
 		}, err => {
 			console.error(err)
 

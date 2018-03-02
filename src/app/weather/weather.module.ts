@@ -6,7 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DetailsComponent } from './components/details/details.component';
 import { DataService } from '../common/services/dataservice.service';
 import { WeatherService } from './services/weatherservice.service';
-
+import { Temp } from "../common/pipes/temp.pipe";
 
 @NgModule({
 	imports: [
@@ -16,7 +16,8 @@ import { WeatherService } from './services/weatherservice.service';
 	],
 	declarations: [
 		DetailsComponent,
-		DashboardComponent
+		DashboardComponent,
+		Temp
 	],
 	exports: [
 		DashboardComponent,

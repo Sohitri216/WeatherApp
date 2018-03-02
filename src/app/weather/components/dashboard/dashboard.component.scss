@@ -1,0 +1,23 @@
+.wrapper{
+    display: table;
+    position: absolute;
+    height: 92%;
+    width: 100%;
+    background-color: #e6e6e6;
+    .weather-card{
+        display: table-cell;
+        vertical-align: middle;
+        .inner{
+            width: 350px;
+            margin: 0 auto;
+            // text-align: center;
+            box-shadow: 5px 10px #888888;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 15px;
+            p{
+                margin-bottom:0;
+            }
+        }
+    }
+}

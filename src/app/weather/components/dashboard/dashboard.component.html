@@ -1,3 +1,18 @@
-<div>
-	
+<div class="wrapper">
+    <div class="weather-card">
+        <div class="inner">
+            <p>{{weatherData?.city?.name}}</p>
+            <p>{{weatherToday?.dt_txt | date:'fullDate'}}</p>
+            <p>Last captured at:
+                <span>{{weatherToday?.dt_txt|date:'shortTime'}}</span>
+            </p>
+            <p>Current Temperature: {{weatherToday?.main?.temp|temp}}</p>
+            <p>Max Temperature: {{weatherToday?.main?.temp_max|temp}}</p>
+            <p>Min Temperature: {{weatherToday?.main?.temp_min|temp}}</p>
+            <p>{{weatherToday?.weather[0]?.description}}</p>
+            <p>Wind speed:
+                <span>{{weatherToday?.wind?.speed}}kn</span>
+            </p>
+        </div>
+    </div>
 </div>
