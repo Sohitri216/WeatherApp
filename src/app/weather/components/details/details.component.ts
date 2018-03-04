@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+// import { WeatherService } from '../../services/weatherservice.service';
+import { Observable } from 'rxjs/Rx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    // private geoService: WeatherService,
+    // private router: Router
+   }
 
   ngOnInit() {
+
   }
 
 }

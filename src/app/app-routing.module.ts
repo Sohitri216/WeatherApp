@@ -19,7 +19,7 @@ export const routes: Routes = [
 		component:DashboardComponent
 	},
 	{
-		path:'details',
+		path:'details/:lat/:lng',
 		component:DetailsComponent
 	}
 ];

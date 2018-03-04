@@ -7,6 +7,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { DataService } from '../common/services/dataservice.service';
 import { WeatherService } from './services/weatherservice.service';
 import { Temp } from "../common/pipes/temp.pipe";
+import * as moment from 'moment';
 
 @NgModule({
 	imports: [

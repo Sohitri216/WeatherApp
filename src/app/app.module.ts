@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import * as moment from 'moment';
+
 import { UserModule } from './user/user.module';
 import { WeatherModule } from './weather/weather.module';
 import { AbstractModule } from './abstract/abstract.module';
@@ -31,4 +33,11 @@ import { AbstractModule } from './abstract/abstract.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor() {
+    let now = moment(); // add this 2 of 4
+    console.log('hello world', now.format()); // add this 3 of 4
+    console.log(now.add(7, 'days').format()); // add this 4of 4
+  }
+ }
