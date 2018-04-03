@@ -1,3 +1,28 @@
-<div>
-details!
+<div class="wrapper">
+    <h2 class="heading2">Weather details of city {{city.name}} at 3 hours interval with population density of {{city.population}}</h2>
+    <div class="card-wrap">
+        <div class="weather-card" *ngFor="let weather of weatherList">
+            <p>{{weather?.dt_txt | date:'fullDate'}}</p>
+            <!-- <p>
+            <span class="bold-text">Place:</span> {{weatherData?.city?.name}}
+        </p> -->
+            <p>
+                <span class="bold-text">Last captured:</span>
+                <span>{{weather?.dt_txt|date:'shortTime'}}</span>
+            </p>
+            <p>
+                <span class="bold-text">Current Temperature:</span> {{weather?.main?.temp|temp}}</p>
+            <p>
+                <span class="bold-text">Max Temperature:</span> {{weather?.main?.temp_max|temp}}</p>
+            <p>
+                <span class="bold-text">Min Temperature:</span> {{weather?.main?.temp_min|temp}}</p>
+            <p>
+                <span class="bold-text">Wind speed:</span>
+                <span>{{weather?.weather[0]?.description}}, {{weather?.wind?.speed}}kn</span>
+            </p>
+            <!-- <div>
+            <button class="button-login" (click)="goToDetails()">Details</button>
+        </div> -->
+        </div>
+    </div>
 </div>

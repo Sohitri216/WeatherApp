@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../../services/weatherservice.service';
+import { DatastorageService } from '../../services/datastorage.service';
 import { Router } from '@angular/router';
 import { Geo, WeatherToday } from './geo';
 import { Observable } from 'rxjs/Rx';
@@ -17,7 +18,8 @@ export class DashboardComponent implements OnInit {
 	lng: number;
 	constructor(
 		private geoService: WeatherService,
-		private router: Router
+		private router: Router,
+		private DatastorageService:DatastorageService
 	) { }
 
 	ngOnInit() {
@@ -55,6 +57,7 @@ export class DashboardComponent implements OnInit {
 				this.weatherToday = this.getCurrentWeather();
 				console.log('Weather data', this.weatherData);
 				console.log('Weather Today', this.weatherToday);
+				this.DatastorageService.setData(this.weatherData);
 			}
 
 		}, err => {

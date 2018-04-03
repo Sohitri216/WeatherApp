@@ -6,6 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DetailsComponent } from './components/details/details.component';
 import { DataService } from '../common/services/dataservice.service';
 import { WeatherService } from './services/weatherservice.service';
+import { DatastorageService } from './services/datastorage.service';
 import { Temp } from "../common/pipes/temp.pipe";
 import * as moment from 'moment';
 
@@ -26,7 +27,8 @@ import * as moment from 'moment';
 	],
 	providers: [
 		DataService,
-		WeatherService
+		WeatherService,
+		DatastorageService
 	]
 })
 export class WeatherModule { }
