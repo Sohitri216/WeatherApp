@@ -2,7 +2,8 @@
     <div class="weather-card">
         <p>{{weatherToday?.dt_txt | date:'fullDate'}}</p>
         <p>
-            <span class="bold-text">Place:</span> {{weatherData?.city?.name}}</p>
+            <span class="bold-text">Place:</span> {{weatherData?.city?.name}}
+        </p>
         <p>
             <span class="bold-text">Last captured:</span>
             <span>{{weatherToday?.dt_txt|date:'shortTime'}}</span>

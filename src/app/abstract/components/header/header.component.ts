@@ -17,5 +17,8 @@ export class HeaderComponent implements OnInit {
   goToLogin(){
   	this.router.navigateByUrl('/login');
   }
+  goToDashboard(){
+    this.router.navigateByUrl('/dashboard');
+  }
 
 }
