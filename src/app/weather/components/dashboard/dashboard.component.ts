@@ -4,6 +4,7 @@ import { DatastorageService } from '../../services/datastorage.service';
 import { Router } from '@angular/router';
 import { Geo, WeatherToday } from './geo';
 import { Observable } from 'rxjs/Rx';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 import * as moment from 'moment';
 
 @Component({
@@ -19,12 +20,14 @@ export class DashboardComponent implements OnInit {
 	constructor(
 		private geoService: WeatherService,
 		private router: Router,
-		private DatastorageService:DatastorageService
+		private DatastorageService: DatastorageService,
+		private ngxService: NgxUiLoaderService
 	) { }
 
 	ngOnInit() {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(this.locationSuccess.bind(this), this.locationError);
+			this.ngxService.start();
 		}
 		else {
 			console.log("Your browser does not support Geolocation!");
@@ -55,6 +58,7 @@ export class DashboardComponent implements OnInit {
 				this.weatherData = data;
 				// this.weatherToday=this.weatherData.list[0];
 				this.weatherToday = this.getCurrentWeather();
+				this.ngxService.stop();
 				console.log('Weather data', this.weatherData);
 				console.log('Weather Today', this.weatherToday);
 				this.DatastorageService.setData(this.weatherData);

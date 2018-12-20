@@ -14,6 +14,9 @@ import { UserModule } from './user/user.module';
 import { WeatherModule } from './weather/weather.module';
 import { AbstractModule } from './abstract/abstract.module';
 
+import { NgxUiLoaderModule } from  'ngx-ui-loader';
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -25,6 +28,7 @@ import { AbstractModule } from './abstract/abstract.module';
     HttpClientModule,
     UserModule,
     WeatherModule,
+    NgxUiLoaderModule,
     AbstractModule.forRoot()
   ],
   schemas: [

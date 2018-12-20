@@ -1,5 +1,7 @@
 <div class="wrapper">
+        <ngx-ui-loader></ngx-ui-loader>
     <div class="weather-card">
+            <!-- <ngx-spinner></ngx-spinner> -->
         <p>{{weatherToday?.dt_txt | date:'fullDate'}}</p>
         <p>
             <span class="bold-text">Place:</span> {{weatherData?.city?.name}}
