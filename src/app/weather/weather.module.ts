@@ -9,7 +9,8 @@ import { DataService } from '../common/services/dataservice.service';
 import { WeatherService } from './services/weatherservice.service';
 import { DatastorageService } from './services/datastorage.service';
 import { Temp } from "../common/pipes/temp.pipe";
-import { NgxUiLoaderModule } from  'ngx-ui-loader';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { HightlightDirective } from '../common/directives/hightlight.directive';
 import * as moment from 'moment';
 
 
@@ -24,7 +25,8 @@ import * as moment from 'moment';
 		DetailsComponent,
 		DashboardComponent,
 		Temp,
-		CustomComponent
+		CustomComponent,
+		HightlightDirective
 	],
 	exports: [
 		DashboardComponent,

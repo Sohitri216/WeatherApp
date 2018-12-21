@@ -15,11 +15,13 @@ import { WeatherModule } from './weather/weather.module';
 import { AbstractModule } from './abstract/abstract.module';
 
 import { NgxUiLoaderModule } from  'ngx-ui-loader';
+import { MapDirective } from './common/directives/map.directive';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MapDirective
   ],
   imports: [
     BrowserModule,
