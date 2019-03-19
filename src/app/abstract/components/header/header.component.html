@@ -3,6 +3,10 @@
 		WeatherApp
 	</div>
 	<div class="pull-right">
-		<button class="button-login" (click)="goToLogin()">Login In</button>
+		<button [disabled]=isLoginPage *ngIf="!getStatus.loggedin;else logout" class="button-login" (click)="goToLogin()">Login In</button>
+		<ng-template #logout>
+			<button class="button-login" (click)="logoutUser()">Logout</button>
+		</ng-template>
+
 	</div>
 </div>

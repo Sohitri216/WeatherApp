@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
+import { DatacommunicationService} from '../common/services/datacommunication.service'
 
 @NgModule({
   imports: [
@@ -11,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
     FormsModule
   ],
   declarations: [LoginComponent],
+  providers: [DatacommunicationService],
    exports: [
         LoginComponent      
     ],

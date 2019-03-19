@@ -13,15 +13,16 @@ import * as moment from 'moment';
 import { UserModule } from './user/user.module';
 import { WeatherModule } from './weather/weather.module';
 import { AbstractModule } from './abstract/abstract.module';
+import { DatacommunicationService } from './common/services/datacommunication.service';
 
 import { NgxUiLoaderModule } from  'ngx-ui-loader';
-import { MapDirective } from './common/directives/map.directive';
+// import { MapDirective } from './common/directives/map.directive';
+// import { StructuralDirective } from './common/directives/structural.directive';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MapDirective
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +37,7 @@ import { MapDirective } from './common/directives/map.directive';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [],
+  providers: [DatacommunicationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

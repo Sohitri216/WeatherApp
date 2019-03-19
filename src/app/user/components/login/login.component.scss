@@ -4,5 +4,9 @@
     form{
         border: 1px solid #cccccc;
         padding: 30px;
+        .submit-button{
+            background: #e04c3b;
+            color: #fff;
+        }
     }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core'
 import { } from '@types/googlemaps'
 import { HightlightDirective } from '../../../common/directives/hightlight.directive'
+import { StructuralDirective } from '../../../common/directives/structural.directive'
 
 
 @Component({
@@ -11,6 +12,7 @@ import { HightlightDirective } from '../../../common/directives/hightlight.direc
 export class CustomComponent implements OnInit {
   @ViewChild('googleMap') gmapElement: any;
   map: google.maps.Map;
+  dummyArr: Array<string>;
   coords: {
     lat: number,
     lon: number
@@ -19,6 +21,7 @@ export class CustomComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.dummyArr = ['The', 'day', 'is', 'cold'];
     this.coords = {
       lat: 22.76,
       lon: 77.2
