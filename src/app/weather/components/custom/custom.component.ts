@@ -1,7 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core'
-import { } from '@types/googlemaps'
-import { HightlightDirective } from '../../../common/directives/hightlight.directive'
-import { StructuralDirective } from '../../../common/directives/structural.directive'
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { } from '@types/googlemaps';
+import { Location } from "@angular/common";
+import { HightlightDirective } from '../../../common/directives/hightlight.directive';
+import { StructuralDirective } from '../../../common/directives/structural.directive';
+import { DatacommunicationService } from '../../../common/services/datacommunication.service';
 
 
 @Component({
@@ -18,7 +20,9 @@ export class CustomComponent implements OnInit {
     lon: number
   }
   color = 'orange';
-  constructor() { }
+  constructor(private dataService: DatacommunicationService, private location: Location) {
+    dataService.setCurrentRouteState(location.path())
+  }
 
   ngOnInit() {
     this.dummyArr = ['The', 'day', 'is', 'cold'];

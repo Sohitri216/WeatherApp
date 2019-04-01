@@ -4,7 +4,9 @@ import { LoginComponent } from './user/components/login/login.component';
 import { DashboardComponent } from './weather/components/dashboard/dashboard.component';
 import { DetailsComponent } from './weather/components/details/details.component';
 import { CustomComponent } from './weather/components/custom/custom.component';
-
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './auth/auth.guard';
+import { LoginGuard } from './auth/login.guard';
 
 export const routes: Routes = [
 	{
@@ -14,19 +16,27 @@ export const routes: Routes = [
 	},
 	{
 		path: 'login',
-		component: LoginComponent
+		component: LoginComponent,
+		canActivate: [LoginGuard]
 	},
 	{
 		path: 'dashboard',
-		component: DashboardComponent
+		component: DashboardComponent,
+		canActivate:[LoginGuard]
 	},
 	{
 		path: 'details/:lat/:lng',
-		component: DetailsComponent
+		component: DetailsComponent,
+		canActivate:[LoginGuard]
 	},
 	{
 		path: 'custom',
-		component:CustomComponent
+		component: CustomComponent,
+		canActivate: [AuthGuard]
+	},
+	{
+		path: '**',
+		component: PageNotFoundComponent
 	}
 ];
 

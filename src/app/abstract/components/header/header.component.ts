@@ -33,6 +33,8 @@ export class HeaderComponent implements OnInit {
 
   logoutUser() {
     this.router.navigateByUrl('/login');
+    localStorage.removeItem('userInfo');
+    localStorage.setItem('isLoggedIn','false')
     this.dataService.changeMessage({loggedin:false});
   }
 

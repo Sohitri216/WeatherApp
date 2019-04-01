@@ -17,4 +17,12 @@ export class DatacommunicationService {
   getCurrentRoute(currentRoute) {
     this.currentRoute = currentRoute
   }
+
+  setCurrentRouteState(state:string) {
+    localStorage.setItem('currentState', state);
+  }
+
+  getCurrentRouteState() {
+    return localStorage.getItem('currentState')
+  }
 }

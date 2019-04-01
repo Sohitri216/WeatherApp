@@ -15,14 +15,18 @@ import { WeatherModule } from './weather/weather.module';
 import { AbstractModule } from './abstract/abstract.module';
 import { DatacommunicationService } from './common/services/datacommunication.service';
 
-import { NgxUiLoaderModule } from  'ngx-ui-loader';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { AuthGuard } from './auth/auth.guard';
+import { LoginGuard } from './auth/login.guard';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 // import { MapDirective } from './common/directives/map.directive';
 // import { StructuralDirective } from './common/directives/structural.directive';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,7 @@ import { NgxUiLoaderModule } from  'ngx-ui-loader';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [DatacommunicationService],
+  providers: [DatacommunicationService, AuthGuard, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

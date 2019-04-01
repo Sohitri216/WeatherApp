@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DatacommunicationService} from '../../../common/services/datacommunication.service'
-import { Router } from '@angular/router';
+import { DatacommunicationService } from '../../../common/services/datacommunication.service';
+import { Router, Data } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,23 +8,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  login : {
+  login: {
     email: string,
-    password:string
+    password: string
   }
-  constructor(private router: Router,
-  private dataService: DatacommunicationService) { }
+  constructor(private router: Router, private dataService: DatacommunicationService) { }
 
   ngOnInit() {
     this.login = {
       email: '',
-      password:''
+      password: ''
     }
   }
 
   onSubmit() {
-    window.localStorage.userInfo = JSON.stringify(this.login);
-    this.dataService.changeMessage({loggedin:true});
+    localStorage.setItem('userInfo', JSON.stringify(this.login));
+    localStorage.setItem('isLoggedIn', 'true');
+    this.dataService.changeMessage({
+      loggedin: true
+    })
     this.router.navigate(['/custom']);
   }
 
