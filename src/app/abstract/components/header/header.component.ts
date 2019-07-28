@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.currentMessage.subscribe(message => {
+      console.log('message::',message);
       this.getStatus = message;
     }
     )

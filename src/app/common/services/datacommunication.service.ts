@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class DatacommunicationService {
 
-  private messageSource = new BehaviorSubject({ loggedin: false });
+  private messageSource = new BehaviorSubject({ loggedin: JSON.parse(localStorage.getItem('isLoggedIn')) });
   private currentRoute = new BehaviorSubject('');
   currentMessage = this.messageSource.asObservable();
 
