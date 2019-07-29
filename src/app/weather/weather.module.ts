@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DetailsComponent } from './components/details/details.component';
 import { CustomComponent } from './components/custom/custom.component';
+import { SearchComponent } from './components/search/search.component';
 // import { DataService } from '../common/services/dataservice.service';
 import { WeatherService } from './services/weatherservice.service';
 import { DatastorageService } from './services/datastorage.service';
@@ -12,6 +13,7 @@ import { Temp } from "../common/pipes/temp.pipe";
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { HightlightDirective } from '../common/directives/hightlight.directive';
 import { StructuralDirective } from '../common/directives/structural.directive';
+import { AgmCoreModule } from '@agm/core';
 import * as moment from 'moment';
 
 
@@ -20,7 +22,8 @@ import * as moment from 'moment';
 		CommonModule,
 		RouterModule,
 		FormsModule,
-		NgxUiLoaderModule
+		NgxUiLoaderModule,
+		AgmCoreModule
 	],
 	declarations: [
 		DetailsComponent,
@@ -28,7 +31,8 @@ import * as moment from 'moment';
 		Temp,
 		CustomComponent,
 		HightlightDirective,
-		StructuralDirective
+		StructuralDirective,
+		SearchComponent
 	],
 	exports: [
 		DashboardComponent,

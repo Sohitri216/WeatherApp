@@ -5,6 +5,7 @@ import { DashboardComponent } from './weather/components/dashboard/dashboard.com
 import { DetailsComponent } from './weather/components/details/details.component';
 import { CustomComponent } from './weather/components/custom/custom.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SearchComponent } from './weather/components/search/search.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LoginGuard } from './auth/login.guard';
 
@@ -22,12 +23,16 @@ export const routes: Routes = [
 	{
 		path: 'dashboard',
 		component: DashboardComponent,
-		canActivate:[LoginGuard]
+		canActivate: [LoginGuard]
 	},
 	{
 		path: 'details/:lat/:lng',
 		component: DetailsComponent,
-		canActivate:[LoginGuard]
+		canActivate: [LoginGuard]
+	},
+	{
+		path: 'search',
+		component: SearchComponent
 	},
 	{
 		path: 'custom',

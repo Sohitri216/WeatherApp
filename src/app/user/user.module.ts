@@ -3,21 +3,26 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
-import { DatacommunicationService} from '../common/services/datacommunication.service'
+import { DatacommunicationService } from '../common/services/datacommunication.service';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    NgxUiLoaderModule
   ],
-  declarations: [LoginComponent],
+  declarations: [
+    LoginComponent
+  ],
   providers: [DatacommunicationService],
-   exports: [
-        LoginComponent      
-    ],
+  exports: [
+    LoginComponent
+  ],
 })
-export class UserModule { 
+export class UserModule {
 
 
 }

@@ -1,0 +1,38 @@
+<!-- AIzaSyALpqC1lh1GOZ-utO-3peDsrjDJLpaMpjU -->
+
+<div class="container-fluid main-container">
+        <p class="main-heading">Click on any place in map to know its current weather</p>
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12 map-container">
+            <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onMapClick($event)">
+
+                <agm-marker [latitude]="lat" [longitude]="lng" *ngIf="locationChosen"></agm-marker>
+            </agm-map>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="wrapper" *ngIf="showCard">
+                <!-- <ngx-ui-loader></ngx-ui-loader> -->
+            <div class="weather-card">
+                <p class="bold-text">{{weatherToday?.dt_txt | date:'fullDate'}}</p>
+                <p *ngIf="weatherData?.city?.name">
+                    <span class="bold-text">Place:</span> {{weatherData?.city?.name}}
+                </p>
+                <p>
+                    <span class="bold-text">Last captured:</span>
+                    <span>{{weatherToday?.dt_txt|date:'shortTime'}}</span>
+                </p>
+                <p>
+                    <span class="bold-text">Current Temperature:</span> {{weatherToday?.main?.temp|temp}}</p>
+                <p>
+                    <span class="bold-text">Max Temperature:</span> {{weatherToday?.main?.temp_max|temp}}</p>
+                <p>
+                    <span class="bold-text">Min Temperature:</span> {{weatherToday?.main?.temp_min|temp}}</p>
+                <p>
+                    <span class="bold-text">Wind speed:</span>
+                    <span>{{weatherToday?.weather[0]?.description}}, {{weatherToday?.wind?.speed}}kn</span>
+                </p>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

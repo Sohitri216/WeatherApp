@@ -19,6 +19,8 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { AuthGuard } from './auth/auth.guard';
 import { LoginGuard } from './auth/login.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+// import { Temp } from './common/pipes/temp.pipe';
+import { AgmCoreModule } from '@agm/core';
 // import { MapDirective } from './common/directives/map.directive';
 // import { StructuralDirective } from './common/directives/structural.directive';
 
@@ -26,7 +28,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    // Temp
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     UserModule,
     WeatherModule,
     NgxUiLoaderModule,
-    AbstractModule.forRoot()
+    AbstractModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyALpqC1lh1GOZ-utO-3peDsrjDJLpaMpjU'
+    })
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
@@ -51,4 +57,4 @@ export class AppModule {
     console.log('hello world', now.format()); // add this 3 of 4
     console.log(now.add(7, 'days').format()); // add this 4of 4
   }
- }
+}
