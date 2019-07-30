@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.dataService.changeMessage({
       loggedin: true
     })
-    this.router.navigate(['/custom']);
+    this.router.navigate(['/search']);
   }
 
 }

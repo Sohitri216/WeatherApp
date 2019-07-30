@@ -32,7 +32,8 @@ export const routes: Routes = [
 	},
 	{
 		path: 'search',
-		component: SearchComponent
+		component: SearchComponent,
+		canActivate: [AuthGuard]
 	},
 	{
 		path: 'custom',

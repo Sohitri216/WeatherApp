@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../../services/weatherservice.service';
+import { DatacommunicationService } from '../../../common/services/datacommunication.service';
 import { Geo, WeatherToday } from '../dashboard/geo';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 
@@ -15,7 +16,7 @@ export class SearchComponent implements OnInit {
   showCard: boolean;
   weatherData: Geo;
   weatherToday: WeatherToday;
-  constructor(private geoService: WeatherService, private ngxService: NgxUiLoaderService) { }
+  constructor(private geoService: WeatherService, private ngxService: NgxUiLoaderService, private dataCommunicationService:DatacommunicationService) { }
 
 
   ngOnInit() {

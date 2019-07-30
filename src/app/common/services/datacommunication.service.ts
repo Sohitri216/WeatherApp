@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class DatacommunicationService {
@@ -8,21 +9,25 @@ export class DatacommunicationService {
   private currentRoute = new BehaviorSubject('');
   currentMessage = this.messageSource.asObservable();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   changeMessage(obj: any) {
     this.messageSource.next(obj);
   }
 
-  getCurrentRoute(currentRoute) {
-    this.currentRoute = currentRoute
+  getPreviousRoute(){
+    return this.router.url;
   }
 
-  setCurrentRouteState(state:string) {
-    localStorage.setItem('currentState', state);
-  }
+  // getCurrentRoute(currentRoute) {
+  //   this.currentRoute = currentRoute
+  // }
 
-  getCurrentRouteState() {
-    return localStorage.getItem('currentState')
-  }
+  // setCurrentRouteState(state:string) {
+  //   localStorage.setItem('currentState', state);
+  // }
+
+  // getCurrentRouteState() {
+  //   return localStorage.getItem('currentState')
+  // }
 }

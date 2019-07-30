@@ -6,7 +6,6 @@ import { DatacommunicationService } from '../common/services/datacommunication.s
 @Injectable()
 export class LoginGuard implements CanActivate {
   constructor(private router: Router, private dataService: DatacommunicationService) {
-
   }
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -14,20 +13,28 @@ export class LoginGuard implements CanActivate {
     if (localStorage.getItem('isLoggedIn') === null || localStorage.getItem('isLoggedIn') === 'false') {
       return true;
     }
-    console.log(this.dataService.getCurrentRouteState());
-    if (this.dataService.getCurrentRouteState()) {
-      this.router.navigate([this.dataService.getCurrentRouteState()]);
-      this.dataService.changeMessage({
-        loggedin: true
-      })
-      return false;
+    console.log('can activate',this.dataService.getPreviousRoute());
+    if(this.dataService.getPreviousRoute()==='/' && localStorage.getItem('isLoggedIn') === 'true'){
+      this.router.navigate(['/search']);
+      return false
     }
-    else {
-      this.router.navigate(['/dashboard']);
-      this.dataService.changeMessage({
-        loggedin: true
-      })
-      return false;
-    }
+    console.log('can activate',this.dataService.getPreviousRoute());
+    return false;
+    // return true;
+    // if (this.router.url=='/search') {
+    //   this.router.navigate([this.router.url]);
+    //   this.dataService.changeMessage({
+    //     loggedin: true
+    //   })
+    //   return false;
+    // }
+    // else {
+    //   console.log('navigate to dashboard')
+    //   this.router.navigate(['/dashboard']);
+    //   this.dataService.changeMessage({
+    //     loggedin: true
+    //   })
+    //   return true;
+    // }
   }
 }
